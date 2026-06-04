@@ -1,8 +1,16 @@
 from PIL import Image
 from PIL import ImageDraw
+from dotenv import load_dotenv
+
+import sys
+from os.path import dirname, abspath
+from os import getenv
 from os import system
-from locations_dict import Locations, Location
 from collections.abc import Callable
+
+from locations_dict import Locations, Location
+
+
 
 class Drawer:
     def __init__(self, mapfile: str) -> None:
@@ -16,7 +24,7 @@ class Drawer:
         self._commands: dict [str, Callable] = {'a': self.add_loop,
                                                 'r': self.rasterize_map,
                                                 's': self.show_locations,
-                                                'q': quit}
+                                                'q': sys.exit}
 
         self._current_queue: list[Location] = [self._locations.locations['a'][1]] #self._locations['alpha'][1] = (377 ,307)
 
@@ -86,7 +94,13 @@ class Drawer:
 
 
 def main() -> None:
-    d: Drawer = Drawer('./rawmap.png')
+    if getattr(sys, 'frozen', False):
+        cwd = dirname(sys.executable)
+    else:
+        cwd = dirname(abspath(__file__))
+    load_dotenv(f'{cwd}\\.env')
+
+    d: Drawer = Drawer(getenv('MAPFILE'))
 
     d.mainloop()
 
