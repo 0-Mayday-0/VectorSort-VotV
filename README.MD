@@ -8,6 +8,7 @@
 ![Extract](./examples/extract.png)
 - # Run the installer
 ![Install](./examples/install.png)
+
 *This will create a .env file with the location of the map image critical to the functioning of the program, don't skip this step.*
 - # All done!
 
