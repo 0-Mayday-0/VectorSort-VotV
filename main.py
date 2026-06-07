@@ -56,9 +56,8 @@ class Drawer:
                 print("Not a valid location")
 
 
-    @staticmethod
-    def quick_vector_sort(vector):
-        return sum(x*x for x in vector)
+    def quick_vector_sort(self, vector):
+        return sum((xy - self._locations.locations['a'][1][0]) + (xy - self._locations.locations['a'][1][1]) for xy in vector)
 
     def rasterize_map(self) -> None:
         map_draw: ImageDraw.Draw = ImageDraw.Draw(self._raw_map_image)
