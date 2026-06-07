@@ -70,6 +70,9 @@ class Drawer:
 
         map_draw.polygon(xy=self._current_queue, outline="green", width=2)
 
+        for xy in self._current_queue:
+            map_draw.circle(xy=xy, outline="cyan", radius=15, width=2)
+
         self._raw_map_image.show()
 
         self._locations_names_queued.clear()
