@@ -32,7 +32,7 @@ class Locations:
                                                'p': Location("Papa", (500, 432)),
                                                'q': Location("Quebec", (252, 433)),
                                                'r': Location("Romeo", (173, 105)),
-                                               's': Location("Sierra", (173, 106)),
+                                               's': Location("Sierra", (377, 105)),
                                                't': Location("Tango", (584,101)),
                                                'u': Location("Uniform", (588, 313)),
                                                'v': Location("Victor", (588, 510)),
